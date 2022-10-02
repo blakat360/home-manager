@@ -3,11 +3,11 @@
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "jdoe";
-  home.homeDirectory = "/home/jdoe";
+  home.username = "sigkill";
+  home.homeDirectory = "/home/sigkill";
 
   # Packages that should be installed to the user profile.
-  home.packages = [                               1
+  home.packages = [
     pkgs.htop
     pkgs.fortune
   ];
@@ -25,7 +25,7 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  programs.emacs = {                              2
+  programs.emacs = {
     enable = true;
     extraPackages = epkgs: [
       epkgs.nix-mode
@@ -33,7 +33,7 @@
     ];
   };
 
-  services.gpg-agent = {                          3
+  services.gpg-agent = {
     enable = true;
     defaultCacheTtl = 1800;
     enableSshSupport = true;
