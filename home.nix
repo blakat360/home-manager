@@ -7,9 +7,9 @@
   home.homeDirectory = "/home/sigkill";
 
   # Packages that should be installed to the user profile.
-  home.packages = [
-    pkgs.htop
-    pkgs.fortune
+  home.packages = with pkgs; [
+    htop
+    fortune
   ];
 
   # This value determines the Home Manager release that your
@@ -24,6 +24,8 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  xsession.windowManager.xmonad.enable = true;
 
   programs.emacs = {
     enable = true;
