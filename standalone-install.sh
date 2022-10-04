@@ -13,3 +13,7 @@ nix-shell '<home-manager>' -A install
 echo "experimental-features = nix-command flakes" | sudo tee -a /etc/nix/nix.conf
 # switch to the config
 home-manager switch --flake 'flake.nix#sigkill'
+cwd=$(pwd)
+cd ~
+ln -s .xsession .xinitrc
+cd $cwd

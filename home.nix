@@ -5,9 +5,15 @@
   # paths it should manage.
   home.username = "sigkill";
   home.homeDirectory = "/home/sigkill";
+  home.file.".xinitrc" = home.file.".xsession"
+  
+  xdg.configFile."xmonad" = ./xmonad;
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
+    neovim
+    bat
+    tree
     htop
     fortune
   ];
@@ -25,14 +31,22 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  xsession.windowManager.xmonad.enable = true;
-
-  programs.emacs = {
+  xsession = {
     enable = true;
-    extraPackages = epkgs: [
-      epkgs.nix-mode
-      epkgs.magit
-    ];
+    windowManager.xmonad.enable = true;
+  };
+
+  programs = {
+    neovim = {
+      viAlias = true;
+    };
+    emacs = {
+      enable = true;
+      extraPackages = epkgs: [
+        epkgs.nix-mode
+        epkgs.magit
+      ];
+    };
   };
 
   services.gpg-agent = {
