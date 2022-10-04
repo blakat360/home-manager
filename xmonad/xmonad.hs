@@ -24,7 +24,8 @@ main = xmonad
      $ myConfig
 
 myConfig = def
-    { modMask    = mod4Mask      -- Rebind Mod to the Super key
+    { terminal   = urxvt
+    , modMask    = mod4Mask      -- Rebind Mod to the Super key
     , layoutHook = myLayout      -- Use custom layouts
     , manageHook = myManageHook  -- Match on certain windows
     }
